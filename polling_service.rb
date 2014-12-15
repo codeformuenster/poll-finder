@@ -1,10 +1,7 @@
-require 'rubygems'
-require 'bundler'
 require 'sinatra/base'
 require 'sinatra'
 require 'sinatra/cross_origin'
-require_relative 'ms_polling'
-Bundler.require
+require './lib/polling_service/muenster'
 
 module PollingService
   class App < Sinatra::Base
@@ -15,11 +12,11 @@ module PollingService
                 'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']  
     end
     get '/' do
-      'Hello World'
+      'Find your polling station'
     end
 
     get '/find/:street/:nr' do |street, nr|
-      ms = MuensterPollStation.new
+      ms = Muenster.new
       { wahlbezirk_nr: ms.find(street, nr) }.to_json
 
     end
