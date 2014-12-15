@@ -1,3 +1,3 @@
-require './polling_service'
+require "./polling_service"
 
 run PollingService::App
