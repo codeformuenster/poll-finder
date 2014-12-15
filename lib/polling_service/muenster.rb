@@ -1,5 +1,6 @@
 require 'scraperwiki'
 require 'nokogiri'
+require 'pry'
 
 module PollingService
   class Muenster
@@ -22,11 +23,19 @@ module PollingService
       ScraperWiki.scrape(action,params)
     end
     def find(street, nr)
-      doc = Nokogiri::HTML(fill_form(street, nr))
-      wahl = doc.search("#content_mitte div p")
-      wahlbezirk_text = wahl.first.children[4].text.strip
-      bezirk = wahlbezirk_text.split(" ")
-      bezirk[0].gsub(/\D*/,"").strip
+      @wahl ||= Nokogiri::HTML(fill_form(street, nr)).search("#content_mitte div p")
+    end
+
+    def wahlbezirk
+      number_from_text(@wahl.first.children[4].text.strip)
+    end
+
+    def stimmbezirk
+      number_from_text(@wahl.first.children[12].text.strip)
+    end
+
+    def number_from_text(text)
+      text.gsub(/\D*/,"").strip
     end
   end
 end
