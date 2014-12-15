@@ -17,8 +17,9 @@ module PollingService
 
     get '/find/:street/:nr' do |street, nr|
       ms = Muenster.new
-      { wahlbezirk_nr: ms.find(street, nr) }.to_json
+      ms.find(street, nr)
 
+      { wahlbezirk_nr: ms.wahlbezirk, stimmbezirk_nr: ms.stimmbezirk }.to_json
     end
   end
 end

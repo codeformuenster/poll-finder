@@ -1,7 +1,7 @@
 # Poll Finder API
 ## Finde dein Wahllokal API
 Eine einfache API mit aktuell nur einem Endpoint zum auffinden des Wahllokals.
-
+Gibt den Stimmbezirk und den Wahlbezirk zurück
 ```
 /find/:strasse/:hausnummer
 ```
@@ -9,7 +9,7 @@ Eine einfache API mit aktuell nur einem Endpoint zum auffinden des Wahllokals.
 gibt JSON zurück in dem folgenden Format
 
 ```
-{"wahlbezirk_nr":"09"}
+{"wahlbezirk_nr":"09","stimmbezirk_nr":"093"}
 ```
 
 ## Setup with Docker
