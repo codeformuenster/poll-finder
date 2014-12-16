@@ -19,7 +19,7 @@ module PollingService
       ms = Muenster.new
       ms.find(street, nr)
 
-      { wahlbezirk_nr: ms.wahlbezirk, stimmbezirk_nr: ms.stimmbezirk }.to_json
+      { wahlbezirk_nr: ms.wahlbezirk, stimmbezirk_nr: ms.stimmbezirk, wahllokal: ms.wahllokal }.to_json
     end
   end
 end
