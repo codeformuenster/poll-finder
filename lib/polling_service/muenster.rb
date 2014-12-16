@@ -33,6 +33,10 @@ module PollingService
       number_from_text(@wahl.first.children[12].text.strip)
     end
 
+    def wahllokal
+      @wahl.first.children[16].text.strip
+    end
+
     def number_from_text(text)
       text.gsub(/\D*/,"").strip
     end
