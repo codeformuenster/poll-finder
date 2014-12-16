@@ -1,6 +1,5 @@
 require 'scraperwiki'
 require 'nokogiri'
-require 'pry'
 
 module PollingService
   class Muenster
