@@ -2,9 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     httpclient (2.3.4.1)
-    mini_portile (0.6.0)
-    nokogiri (1.6.2.1)
-      mini_portile (= 0.6.0)
+    mini_portile2 (2.4.0)
+    nokogiri (1.10.4)
+      mini_portile2 (~> 2.4.0)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -25,7 +25,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  nokogiri
+  nokogiri (>= 1.8.3)
   scraperwiki
   sinatra
   sinatra-cross_origin (~> 0.3.2)
+
+BUNDLED WITH
+   1.17.3
